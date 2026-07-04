@@ -139,9 +139,9 @@ function Get-AllCachedSkills {
 if ($Search) {
     Write-Host ("Searching across all curated repositories for '" + $Search + "'...") -ForegroundColor Cyan
     $allSkills = Get-AllCachedSkills
-    $matches = $allSkills | Where-Object { $_.Name -like "*$Search*" -or $_.Description -like "*$Search*" }
+    $foundSkills = $allSkills | Where-Object { $_.Name -like "*$Search*" -or $_.Description -like "*$Search*" }
     
-    if ($matches.Count -eq 0) {
+    if ($foundSkills.Count -eq 0) {
         Write-Host ("[ERROR] No matching skills found for '" + $Search + "'.") -ForegroundColor Yellow
         exit 0
     }
@@ -149,7 +149,7 @@ if ($Search) {
     $recommendedMatches = @()
     $communityMatches = @()
     
-    foreach ($res in $matches) {
+    foreach ($res in $foundSkills) {
         if ($CoreMacroSkills -contains $res.Name) {
             $recommendedMatches += $res
         } else {

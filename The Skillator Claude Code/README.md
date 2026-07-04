@@ -1,4 +1,4 @@
-# 🧠 The Skillator — Claude Code Edition (Anthropic)
+# The Skillator — Claude Code Edition (Anthropic)
 
 This edition of The Skillator is optimized for **Anthropic's Claude Code** terminal interface. It leverages Claude's native `.claude/` configuration architecture, security hooks, and a `CLAUDE.md` instruction file to provide plug-and-play agentic coding superpowers.
 
@@ -16,18 +16,18 @@ This specific edition is tailored for Claude Code's native architecture:
 
 ---
 
-## 🏆 The Curation Philosophy & "The Goldilocks Principle"
+## The Curation Philosophy & "The Goldilocks Principle"
 
 Why does this edition ship with exactly **20 pre-installed skills** instead of 100 or 500?
 
 ### 1. Extensive Research & Macro-Skill Synthesis
-The author, **Pietro Canettieri**, conducted an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
+I conducted, with the help of AI, an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
 - [mattpocock/skills](https://github.com/mattpocock/skills) — TypeScript, React, and modern frontend development excellence.
 - [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) — Curated agentic behaviors and developer utilities.
 - [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) — In-depth cybersecurity auditing and vulnerability analysis.
 - [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) — Complete autonomous AI agency roles (architects, analysts, DevOps leads).
 
-Instead of simply copying raw files, Pietro analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
+Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
 
 ### 2. Preventing "Cognitive Overload" in Claude Code
 A common misconception in AI development is that *more skills equal better performance*. In reality, providing an AI agent with 50 or 100 overlapping skills causes **Cognitive Overload**:
@@ -91,7 +91,7 @@ Looking for something specific? Search by keyword:
 .\tools\manage-skills.ps1 -Search "design"
 ```
 
-#### 💡 Smart Recommendation Ranking
+#### Smart Recommendation Ranking
 When searching, the script automatically separates and ranks results to prevent choice paralysis:
 1. **[CORE MACRO-SKILL] (Top Recommendations):** Pietro's pre-installed foundation skills appear at the very top, highlighted as the recommended choice because they prevent AI instruction clash.
 2. **[COMMUNITY] (Catalog Matches):** Additional matching skills from external repositories appear below for specialized exploration.
@@ -159,8 +159,8 @@ See [`skill_creator.md`](./skill_creator.md) for a complete guide on building cu
 ## Author & Contact
 
 **Pietro Canettieri**  
-📧 Email: [pietro.canettieri.2008@gmail.com](mailto:pietro.canettieri.2008@gmail.com)  
-🐙 GitHub Repository: [https://github.com/LordHunder/The-Skillator](https://github.com/LordHunder/The-Skillator)
+Email: [pietro.canettieri.2008@gmail.com](mailto:pietro.canettieri.2008@gmail.com)  
+GitHub Repository: [https://github.com/LordHunder/The-Skillator](https://github.com/LordHunder/The-Skillator)
 
 ---
 

@@ -1,4 +1,4 @@
-# 🧠 The Skillator
+# The Skillator
 
 **An open-source toolkit that gives your AI coding agent superpowers.**
 
@@ -21,18 +21,18 @@ The Skillator automates and refines the entire process:
 
 ---
 
-## 🏆 The Curation Philosophy & "The Goldilocks Principle"
+## The Curation Philosophy & "The Goldilocks Principle"
 
 Why does each edition ship with exactly **20 pre-installed skills** instead of 100 or 500?
 
 ### 1. Extensive Research & Macro-Skill Synthesis
-The author, **Pietro Canettieri**, conducted an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
+I conducted, with the help of AI, an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
 - [mattpocock/skills](https://github.com/mattpocock/skills) — TypeScript, React, and modern frontend development excellence.
 - [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) — Curated agentic behaviors and developer utilities.
 - [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) — In-depth cybersecurity auditing and vulnerability analysis.
 - [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) — Complete autonomous AI agency roles (architects, analysts, DevOps leads).
 
-Instead of simply copying raw files, Pietro analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
+Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
 
 ### 2. Preventing "Cognitive Overload" in AI Agents
 A common misconception in AI development is that *more skills equal better performance*. In reality, providing an AI agent with 50 or 100 overlapping skills causes **Cognitive Overload**:
@@ -197,8 +197,8 @@ Contributions are welcome! If you create a high-performance skill, feel free to 
 ## Author & Contact
 
 **Pietro Canettieri**  
-📧 Email: [pietro.canettieri.2008@gmail.com](mailto:pietro.canettieri.2008@gmail.com)  
-🐙 GitHub Repository: [https://github.com/LordHunder/The-Skillator](https://github.com/LordHunder/The-Skillator)
+Email: [pietro.canettieri.2008@gmail.com](mailto:pietro.canettieri.2008@gmail.com)  
+GitHub Repository: [https://github.com/LordHunder/The-Skillator](https://github.com/LordHunder/The-Skillator)
 
 ---
 

@@ -1,6 +1,6 @@
 # The Skillator — Claude Code Edition (Anthropic)
 
-This edition of The Skillator is optimized for **Anthropic's Claude Code** terminal interface. It leverages Claude's native `.claude/` configuration architecture, security hooks, and a `CLAUDE.md` instruction file to provide plug-and-play agentic coding superpowers.
+This edition of The Skillator is optimized for **Anthropic's Claude Code** terminal interface. It leverages Claude's native `.claude/` configuration architecture and security hooks to provide plug-and-play agentic coding superpowers.
 
 ---
 
@@ -10,7 +10,6 @@ The Skillator is your AI agent's personal **Universal Multi-Repository App Store
 
 This specific edition is tailored for Claude Code's native architecture:
 - Skills live in `.claude/skills/`.
-- Project rules live in `CLAUDE.md`.
 - No language adaptation is required — Claude executes the skills natively without translation.
 - Security hooks in `.claude/settings.json` protect against dangerous shell execution.
 
@@ -57,7 +56,6 @@ The Skillator Claude Code/
 ├── outputs/                   # Generated results appear here
 ├── tools/
 │   └── manage-skills.ps1      # Universal Multi-Repo Skill Manager script
-├── CLAUDE.md                  # Project rules for Claude Code
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files
@@ -67,7 +65,38 @@ The Skillator Claude Code/
 
 ## How to Use the Multi-Repo App Store
 
-### 1. Download & Update the Skill Catalog
+We provide two easy ways to use the store: **Method 1 (Recommended for Beginners)** lets Claude Code handle the terminal commands for you via a prompt, while **Method 2** shows the manual terminal commands.
+
+### Method 1: Let Claude Do Everything (Recommended for Beginners)
+
+If you don't want to run terminal commands manually, you can let **Claude Code** do all the work for you! Simply create a folder named whatever you want, open Claude Code inside it, and give Claude one of these two prompts depending on your preference:
+
+#### Option 1: Express Global Setup (Fastest - Copy the 20 Pre-installed Skills)
+If you want instant access to the 20 pre-installed Core Macro-Skills across all your projects without downloading anything, give Claude this prompt:
+
+```text
+Please set up "https://github.com/LordHunder/The-Skillator" in this workspace for me.
+Copy the 20 pre-installed Core Macro-Skills from this edition's skill folder (`.claude/skills/`) directly into my global user skills directory (for example, `~/.claude/skills`).
+Please confirm when they are copied and explain what you did in simple terms so I know my 20 foundation skills are ready to use everywhere!
+```
+
+#### Option 2: Interactive Step-by-Step Setup (Explore & Custom Install)
+If you prefer to explore the full multi-repository catalog and install specific skills step by step, give Claude this prompt:
+
+```text
+Please set up "https://github.com/LordHunder/The-Skillator" in this workspace for me.
+1. Run `.\tools\manage-skills.ps1 -UpdateCache` in PowerShell to download the multi-repository skill catalog.
+2. Show me a list of available skills or suggest relevant ones based on my project goals.
+3. Once I confirm, install the recommended Core Macro-Skills using `.\tools\manage-skills.ps1 -Install "<skill-name>"`.
+Please explain each step in simple terms as you do it!
+```
+
+> **💡 Beginner Pro Tip: How to Activate Your Skills in Any Chat**  
+> Whenever you start a new coding task or project, it is best to remind Claude by saying: **"Please check what skills I have installed"** (or in Italian: *"Vai a controllare le skill che ho"*). This guarantees that Claude scans your skill folder and activates all its specialized coding superpowers immediately!
+
+### Method 2: Manual Terminal Commands
+
+#### 1. Download & Update the Skill Catalog
 
 The first time you use The Skillator, download the full multi-repository skill catalog from GitHub:
 
@@ -77,13 +106,13 @@ The first time you use The Skillator, download the full multi-repository skill c
 
 This clones multiple elite repositories (`anthropic-cybersecurity`, `antigravity-awesome`, `mattpocock-skills`, `agency-agents`) into your user profile folder (`~\.claude\skills-cache\`).
 
-### 2. Add Custom GitHub Repositories
+#### 2. Add Custom GitHub Repositories
 Want to add another skill repository to your catalog? One command adds it:
 ```powershell
 .\tools\manage-skills.ps1 -AddRepo "https://github.com/username/awesome-repo.git"
 ```
 
-### 3. Search for a Skill (With Smart Ranking)
+#### 3. Search for a Skill (With Smart Ranking)
 
 Looking for something specific? Search by keyword:
 
@@ -91,12 +120,12 @@ Looking for something specific? Search by keyword:
 .\tools\manage-skills.ps1 -Search "design"
 ```
 
-#### Smart Recommendation Ranking
+##### Smart Recommendation Ranking
 When searching, the script automatically separates and ranks results to prevent choice paralysis:
 1. **[CORE MACRO-SKILL] (Top Recommendations):** Pietro's pre-installed foundation skills appear at the very top, highlighted as the recommended choice because they prevent AI instruction clash.
 2. **[COMMUNITY] (Catalog Matches):** Additional matching skills from external repositories appear below for specialized exploration.
 
-### 4. Install a Skill
+#### 4. Install a Skill
 
 Found what you need? Install it with one command:
 
@@ -108,7 +137,7 @@ Found what you need? Install it with one command:
 1. The script copies the skill folder from the local cache into `.claude/skills/`.
 2. The skill is installed in its native format for immediate execution by Claude.
 
-### 5. List Active & All Skills
+#### 5. List Active & All Skills
 
 See what's currently installed in your workspace:
 ```powershell
@@ -119,14 +148,14 @@ See every available skill across all cached GitHub repositories:
 .\tools\manage-skills.ps1 -ListAll
 ```
 
-### 6. Uninstall a Skill
+#### 6. Uninstall a Skill
 
 Remove a skill you no longer need:
 ```powershell
 .\tools\manage-skills.ps1 -Uninstall "magic-ui-generator"
 ```
 
-### 7. Install to Global Claude Folder
+#### 7. Install to Global Claude Folder
 
 To make a skill available across **all** your Claude Code projects (not just this workspace), use the `-GlobalClaude` flag:
 ```powershell
@@ -136,9 +165,9 @@ This installs to `~\.claude\skills\` instead of the local `.claude\skills\`.
 
 ---
 
-## The `CLAUDE.md` File & Security Hooks
+## Security Hooks in Settings
 
-The `CLAUDE.md` file defines foundational project rules and persona guidelines for Claude Code. Additionally, this edition includes a `.claude/settings.json` file equipped with **Security Hooks**:
+This edition includes a `.claude/settings.json` file equipped with **Security Hooks**:
 - Automatic permission gates for terminal commands.
 - Protection against destructive file modifications.
 - Active integration with `core-security-guard` to prevent hardcoding credentials.

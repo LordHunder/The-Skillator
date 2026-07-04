@@ -1,6 +1,6 @@
 # The Skillator — Antigravity Edition (Google Gemini)
 
-This edition of The Skillator is specifically designed and optimized for **Google Gemini** running inside the **Antigravity IDE**. It leverages Gemini's native `.agent/` configuration architecture, automated text adaptation, and a `Global Antigravity.md` instruction file to unlock enterprise-grade coding superpowers.
+This edition of The Skillator is specifically designed and optimized for **Google Gemini** running inside the **Antigravity IDE**. It leverages Gemini's native `.agent/` configuration architecture and automated text adaptation to unlock enterprise-grade coding superpowers.
 
 ---
 
@@ -10,7 +10,6 @@ The Skillator is your AI agent's personal **Universal Multi-Repository App Store
 
 This specific edition is tailored for Gemini's architecture:
 - Skills live in `.agent/skills/`.
-- Project rules live in `Global Antigravity.md`.
 - The script automatically adapts skill language from Claude/Anthropic terminology to **Antigravity/Gemini** terminology.
 
 ---
@@ -55,7 +54,6 @@ The Skillator Antigravity/
 ├── outputs/                   # Generated results appear here
 ├── tools/
 │   └── manage-skills.ps1      # Universal Multi-Repo Skill Manager script
-├── Global Antigravity.md      # Project rules for Gemini
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files
@@ -65,7 +63,38 @@ The Skillator Antigravity/
 
 ## How to Use the Multi-Repo App Store
 
-### 1. Download & Update the Skill Catalog
+We provide two easy ways to use the store: **Method 1** lets Google Gemini handle the terminal commands for you via a prompt, while **Method 2** shows the manual terminal commands.
+
+### Method 1: Let Gemini Do Everything (Recommended for Beginners)
+
+If you don't want to run terminal commands manually, you can let **Google Gemini** do all the work for you inside the Antigravity IDE! Simply create a folder named whatever you want, open Antigravity IDE inside it, and give Gemini one of these two prompts depending on your preference:
+
+#### Option 1: Express Global Setup (Fastest - Copy the 20 Pre-installed Skills)
+If you want instant access to the 20 pre-installed Core Macro-Skills across all your projects without downloading anything, give Gemini this prompt:
+
+```text
+Please set up "https://github.com/LordHunder/The-Skillator" in this workspace for me.
+Copy the 20 pre-installed Core Macro-Skills from this edition's skill folder (`.agent/skills/`) directly into my global user skills directory (for example, `C:\Users\Pietro\.gemini\skills`).
+Please confirm when they are copied and explain what you did in simple terms so I know my 20 foundation skills are ready to use everywhere!
+```
+
+#### Option 2: Interactive Step-by-Step Setup (Explore & Custom Install)
+If you prefer to explore the full multi-repository catalog and install specific skills step by step, give Gemini this prompt:
+
+```text
+Please set up "https://github.com/LordHunder/The-Skillator" in this workspace for me.
+1. Run `.\tools\manage-skills.ps1 -UpdateCache` in PowerShell to download the multi-repository skill catalog.
+2. Show me a list of available skills or suggest relevant ones based on my project goals.
+3. Once I confirm, install the recommended Core Macro-Skills using `.\tools\manage-skills.ps1 -Install "<skill-name>"`.
+Please explain each step in simple terms as you do it!
+```
+
+> **💡 Beginner Pro Tip: How to Activate Your Skills in Any Chat**  
+> Whenever you start a new coding task or project, it is best to remind Gemini by saying: **"Please check what skills I have installed"** (or in Italian: *"Vai a controllare le skill che ho"*). This guarantees that Gemini scans your skill folder and activates all its specialized coding superpowers immediately!
+
+### Method 2: Manual Terminal Commands
+
+#### 1. Download & Update the Skill Catalog
 
 The first time you use The Skillator, download the full multi-repository skill catalog from GitHub:
 
@@ -75,13 +104,13 @@ The first time you use The Skillator, download the full multi-repository skill c
 
 This clones multiple elite repositories (`anthropic-cybersecurity`, `antigravity-awesome`, `mattpocock-skills`, `agency-agents`) into your user profile folder (`~\.gemini\skills-cache\`).
 
-### 2. Add Custom GitHub Repositories
+#### 2. Add Custom GitHub Repositories
 Want to add another skill repository to your catalog? One command adds it:
 ```powershell
 .\tools\manage-skills.ps1 -AddRepo "https://github.com/username/awesome-repo.git"
 ```
 
-### 3. Search for a Skill (With Smart Ranking)
+#### 3. Search for a Skill (With Smart Ranking)
 
 Looking for something specific? Search by keyword:
 
@@ -89,12 +118,12 @@ Looking for something specific? Search by keyword:
 .\tools\manage-skills.ps1 -Search "design"
 ```
 
-#### Smart Recommendation Ranking
+##### Smart Recommendation Ranking
 When searching, the script automatically separates and ranks results to prevent choice paralysis:
 1. **[CORE MACRO-SKILL] (Top Recommendations):** Pietro's pre-installed foundation skills appear at the very top, highlighted as the recommended choice because they prevent AI instruction clash.
 2. **[COMMUNITY] (Catalog Matches):** Additional matching skills from external repositories appear below for specialized exploration.
 
-### 4. Install a Skill
+#### 4. Install a Skill
 
 Found what you need? Install it with one command:
 
@@ -107,7 +136,7 @@ Found what you need? Install it with one command:
 2. It automatically rewrites Claude/Anthropic-specific terms (e.g., "Claude Code" → "Antigravity/Gemini") so the skill reads natively for Gemini.
 3. The skill is immediately active — no IDE restart required.
 
-### 5. List Active & All Skills
+#### 5. List Active & All Skills
 
 See what's currently installed in your workspace:
 ```powershell
@@ -118,35 +147,20 @@ See every available skill across all cached GitHub repositories:
 .\tools\manage-skills.ps1 -ListAll
 ```
 
-### 6. Uninstall a Skill
+#### 6. Uninstall a Skill
 
 Remove a skill you no longer need:
 ```powershell
 .\tools\manage-skills.ps1 -Uninstall "magic-ui-generator"
 ```
 
-### 7. Install to Global Gemini Folder
+#### 7. Install to Global Gemini Folder
 
 To make a skill available across **all** your Gemini projects (not just this workspace), use the `-GlobalGemini` flag:
 ```powershell
 .\tools\manage-skills.ps1 -Install "core-security-guard" -GlobalGemini
 ```
 This installs to `~\.gemini\skills\` instead of the local `.agent\skills\`.
-
----
-
-## The `Global Antigravity.md` File
-
-This file contains the project-wide rules that Gemini follows during every interaction. It defines:
-
-- **Identity**: Tells Gemini it's an augmented agent that should use skills automatically.
-- **Communication style**: Plain language, analogies, friendly tone.
-- **Safety rules**: Always ask permission before critical operations.
-- **Cost transparency**: Show estimated costs before using paid APIs.
-- **Technical explanations**: Focus on "what" and "why", not just "how".
-- **Folder structure prompt**: Instructions for setting up the project workspace.
-
-You can customize these rules to match your personal workflow preferences.
 
 ---
 

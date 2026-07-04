@@ -21,7 +21,7 @@ The Skillator automates and refines the entire process:
 
 ---
 
-## The Curation Philosophy & "The Goldilocks Principle"
+## The Advice
 
 Why does each edition ship with exactly **20 pre-installed skills** instead of 100 or 500?
 
@@ -32,7 +32,7 @@ I conducted, with the help of AI, an exhaustive research, curation, and synthesi
 - [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) — In-depth cybersecurity auditing and vulnerability analysis.
 - [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) — Complete autonomous AI agency roles (architects, analysts, DevOps leads).
 
-Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
+Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"**.
 
 ### 2. Preventing "Cognitive Overload" in AI Agents
 A common misconception in AI development is that *more skills equal better performance*. In reality, providing an AI agent with 50 or 100 overlapping skills causes **Cognitive Overload**:
@@ -49,11 +49,11 @@ The 20 skills pre-installed in your `.agent/skills/` (or `.claude/skills/`, `.co
 
 This repository contains **three editions** of The Skillator, each optimized for a different AI coding agent. **Pick the one that matches your tool:**
 
-| Edition | AI Tool | Config Folder | Instruction File | Key Feature |
-|:---|:---|:---|:---|:---|
-| [**Antigravity**](./The%20Skillator%20Antigravity/) | Google Gemini (Antigravity IDE) | `.agent/` | `Global Antigravity.md` | Gemini-native adaptation + folder structure prompt |
-| [**Claude Code**](./The%20Skillator%20Claude%20Code/) | Anthropic Claude Code | `.claude/` | `CLAUDE.md` | Security hooks + native skill execution |
-| [**Codex**](./The%20Skillator%20Codex/) | OpenAI Codex CLI | `.codex/` | `AGENTS.md` | Open standard format + sandbox configuration |
+| Edition | AI Tool | Config Folder | Key Feature |
+|:---|:---|:---|:---|
+| [**Antigravity**](./The%20Skillator%20Antigravity/) | Google Gemini (Antigravity IDE) | `.agent/` | Gemini-native adaptation + folder structure prompt |
+| [**Claude Code**](./The%20Skillator%20Claude%20Code/) | Anthropic Claude Code | `.claude/` | Security hooks + native skill execution |
+| [**Codex**](./The%20Skillator%20Codex/) | OpenAI Codex CLI | `.codex/` | Open standard format + sandbox configuration |
 
 > **Not sure which one to pick?** If you use Google's Antigravity IDE, pick **Antigravity**. If you use Claude Code in the terminal, pick **Claude Code**. If you use OpenAI's Codex CLI, pick **Codex**.
 
@@ -67,9 +67,8 @@ Each edition follows the same core workflow, but uses the native architecture of
 ┌─────────────────────────────────────────────────────────┐
 │                    YOUR AI AGENT                         │
 │                                                          │
-│  1. Reads instruction file (CLAUDE.md / AGENTS.md / etc) │
-│  2. Scans installed skills in the config folder           │
-│  3. Auto-applies relevant skills to your task             │
+│  1. Scans installed skills in the config folder           │
+│  2. Auto-applies relevant skills to your task             │
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
@@ -87,7 +86,7 @@ Each edition follows the same core workflow, but uses the native architecture of
 
 This PowerShell script transforms your terminal into a **Universal Multi-Repository App Store** for AI skills. It connects to multiple curated catalogs (`mukul975/Anthropic-Cybersecurity-Skills`, `sickn33/antigravity-awesome-skills`, `mattpocock/skills`, `msitarzewski/agency-agents`) and allows you to add any custom GitHub repository!
 
-#### 💡 Smart Recommendation & Ranking
+#### Smart Recommendation & Ranking
 When you search for a skill (e.g., `.\tools\manage-skills.ps1 -Search "design"`), you might get dozens or hundreds of matches across community repositories. To prevent choice paralysis and cognitive overload, **The Skillator automatically ranks search results**:
 1. **[CORE MACRO-SKILL] (Top Recommendations):** Pietro's curated foundation skills appear at the very top, highlighted as the recommended choice because they are optimized against instruction clash.
 2. **[COMMUNITY] (Catalog Matches):** Additional matching skills from external repositories appear below for specialized exploration.
@@ -111,7 +110,36 @@ When you search for a skill (e.g., `.\tools\manage-skills.ps1 -Search "design"`)
 - **Git** installed and accessible from the terminal
 - One of the supported AI coding agents (Antigravity, Claude Code, or Codex CLI)
 
-### Step-by-step
+We provide two easy ways to get started: **Method 1 (Recommended for Beginners)** lets your AI coding agent do all the setup automatically via a prompt, while **Method 2** shows manual terminal commands.
+
+### Method 1: Let Your AI Agent Do Everything (Recommended for Beginners)
+
+If you are new to terminal commands or want a zero-friction setup, you don't need to type any PowerShell commands yourself! Simply open your AI coding agent (e.g., Google Gemini in Antigravity IDE, Claude Code, or Codex CLI), create a folder named whatever you want and choose it, then give your agent one of these two prompts depending on your preference:
+
+#### Option 1: Express Global Setup (Fastest - Copy the 20 Pre-installed Skills)
+If you want instant access to the 20 pre-installed Core Macro-Skills across all your projects without downloading anything, give your agent this prompt:
+
+```text
+Please set up "https://github.com/LordHunder/The-Skillator" in this workspace for me.
+Copy the 20 pre-installed Core Macro-Skills from this edition's skill folder (e.g., `.agent/skills/` or `.claude/skills/` or `.codex/skills/`) directly into my global user skills directory (for example, `C:\Users\Pietro\.gemini\skills`, `~/.claude/skills`, or `~/.codex/skills`).
+Please confirm when they are copied and explain what you did in simple terms so I know my 20 foundation skills are ready to use everywhere!
+```
+
+#### Option 2: Interactive Step-by-Step Setup (Explore & Custom Install)
+If you prefer to explore the full multi-repository catalog and install specific skills step by step, give your agent this prompt:
+
+```text
+Please set up "https://github.com/LordHunder/The-Skillator" in this workspace for me.
+1. Run `.\tools\manage-skills.ps1 -UpdateCache` in PowerShell to download the multi-repository skill catalog.
+2. Show me a list of available skills or suggest relevant ones based on my project goals.
+3. Once I confirm, install the recommended Core Macro-Skills using `.\tools\manage-skills.ps1 -Install "<skill-name>"`.
+Please explain each step in simple terms as you do it!
+```
+
+> **💡 Beginner Pro Tip: How to Activate Your Skills in Any Chat**  
+> Whenever you start a new coding task or project, it is best to remind your coding agent by saying: **"Please check what skills I have installed"** (or in Italian: *"Vai a controllare le skill che ho"*). This guarantees that your AI agent scans your skill folder and activates all its specialized coding superpowers immediately!
+
+### Method 2: Manual Terminal Setup
 
 1. **Clone this repository:**
    ```bash
@@ -177,11 +205,10 @@ The Skillator [Edition]/
 │   ├── skills/           # Installed Core Macro-Skills
 │   ├── [commands/prompts] # Custom workflows
 │   └── .env.example      # API key template
-├── inputs/               # Your input files (reference documentation, images, specs)
-├── outputs/              # Generated results (builds, mockups, exported reports)
+├── inputs/               # Your input files
+├── outputs/              # Generated results
 ├── tools/
 │   └── manage-skills.ps1 # Universal Multi-Repo Skill Manager script
-├── [instruction file]    # CLAUDE.md or AGENTS.md or Global Antigravity.md
 ├── skill_creator.md      # Guide for creating custom skills
 └── README.md             # Edition-specific documentation
 ```

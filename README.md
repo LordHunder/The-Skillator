@@ -214,14 +214,6 @@ For those interested in the technical differences between the three editions:
 
 ---
 
-## Author & Contact
-
-**Pietro Canettieri**
-- Email: [pietro.canettieri.2008@gmail.com](mailto:pietro.canettieri.2008@gmail.com)
-- GitHub: [LordHunder](https://github.com/LordHunder)
-
----
-
 ## Contributing
 
 Contributions are welcome! If you create a useful skill, consider submitting it to the upstream [Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) repository.

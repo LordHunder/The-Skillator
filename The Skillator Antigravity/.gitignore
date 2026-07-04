@@ -1,0 +1,33 @@
+# Variabili di ambiente e segreti (Mai pubblicare su GitHub!)
+.env
+*.env
+*.env.*
+!.env.example
+
+# Cartelle temporanee di lavoro e test (scratch)
+scratch/
+.agent/scratch/
+
+# Cache di skill scaricate dal web
+skills-cache/
+inputs/skills-cache/
+
+# File di sistema operativo e log
+*.log
+Thumbs.db
+.DS_Store
+
+# File temporanei degli IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python e Node (in caso di script e tool successivi)
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/

@@ -1,0 +1,10 @@
+# Codex CLI — Project Configuration
+# See: https://platform.openai.com/docs/codex
+
+# Sandbox mode: controls what Codex can do in your project.
+# Options: "read-only", "workspace-write" (default), "danger-full-access"
+sandbox_mode = "workspace-write"
+
+# Approval policy: when Codex should ask for your permission.
+# Options: "on-request" (recommended), "never"
+approval_policy = "on-request"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Memory Archivist"
+  short_description: "Save durable project memory files"
+  default_prompt: "Use $project-memory-archivist to save this implementation plan into structured project memory."

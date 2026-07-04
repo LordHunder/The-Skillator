@@ -1,0 +1,32 @@
+# Environment variables and secrets (Never publish on GitHub!)
+.env
+*.env
+*.env.*
+!.env.example
+
+# Temporary work folders (scratch)
+scratch/
+
+# Skills cache downloaded from the web
+skills-cache/
+inputs/skills-cache/
+
+# OS and log files
+*.log
+Thumbs.db
+.DS_Store
+
+# IDE temporary files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python and Node (for future scripts and tools)
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/

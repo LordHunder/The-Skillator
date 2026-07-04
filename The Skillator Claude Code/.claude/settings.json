@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "LS"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -Command \"$input = $env:CLAUDE_TOOL_INPUT_COMMAND; if ($input -match 'rm\\s+-rf\\s+/' -or $input -match 'git\\s+push\\s+--force' -or $input -match 'format\\s+[A-Z]:') { exit 2 } else { exit 0 }\"",
+            "timeout": 10,
+            "statusMessage": "Checking command safety..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -Command \"Write-Host '[Hook] File modified: checking for hardcoded secrets...'; $content = Get-Content $env:CLAUDE_TOOL_INPUT_FILE_PATH -Raw -ErrorAction SilentlyContinue; if ($content -match '(?i)(api[_-]?key|password|secret|token)\\s*=\\s*[^$\\{]') { Write-Warning 'Potential hardcoded secret detected!'; exit 1 } else { exit 0 }\"",
+            "timeout": 15,
+            "statusMessage": "Scanning for hardcoded secrets..."
+          }
+        ]
+      }
+    ]
+  }
+}

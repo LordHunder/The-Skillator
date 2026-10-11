@@ -35,7 +35,7 @@ $CoreMacroSkills = @(
     "deep-security-audit", "design-craft", "devops-cloud-architect",
     "error-handling-patterns", "finance-business-analyst", "legal-compliance-advisor",
     "magic-ui-generator", "mcp-orchestrator", "motion-choreographer", "premium-frontend-architect",
-    "project-memory-archivist", "seo-aeo-optimizer", "silent-coder", "ui-redesign", "writing-plans"
+    "project-memory-archivist", "seo-aeo-optimizer", "silent-coder", "skill-creator", "ui-redesign", "writing-plans"
 )
 
 # Helper Function: Extract YAML Frontmatter

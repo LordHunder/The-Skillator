@@ -192,6 +192,7 @@ Each edition ships with these battle-tested, high-density Macro-Skills pre-insta
 | `motion-choreographer` | Physics-based spring animations, layout transitions, and micro-interactions. |
 | `project-memory-archivist` | Cross-session memory persistence and progress logging for long-running workflows. |
 | `seo-aeo-optimizer` | Modern search engine and Answer Engine Optimization (AI search visibility). |
+| `skill-creator` | **Essential Meta-Skill:** Teaches your agent how to generate, scaffold, and refine new custom skills following strict YAML frontmatter, progressive disclosure, and non-conflicting directives. |
 | `ui-redesign` | Surgical visual modernization for legacy interfaces. |
 | `writing-plans` | Comprehensive step-by-step implementation blueprints and verification steps. |
 
@@ -202,13 +203,13 @@ Each edition ships with these battle-tested, high-density Macro-Skills pre-insta
 ```
 The Skillator/
 ├── The Skillator Antigravity/     # Google Gemini / Antigravity IDE edition
-│   ├── .agent/skills/            # 21 Core Macro-Skills
+│   ├── .agent/skills/            # 22 Core Macro-Skills
 │   └── tools/                    # manage-skills, init-workspace, setup-project
 ├── The Skillator Claude Code/     # Anthropic Claude Code edition
-│   ├── .claude/skills/           # 21 Core Macro-Skills
+│   ├── .claude/skills/           # 22 Core Macro-Skills
 │   └── tools/                    # manage-skills, init-workspace, setup-project
 ├── The Skillator Codex/           # OpenAI Codex / CLI edition
-│   ├── .codex/skills/            # 21 Core Macro-Skills
+│   ├── .codex/skills/            # 22 Core Macro-Skills
 │   └── tools/                    # manage-skills, init-workspace, setup-project
 └── README.md                      # Global documentation
 ```

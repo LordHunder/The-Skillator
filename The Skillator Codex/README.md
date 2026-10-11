@@ -11,30 +11,7 @@ The Skillator is your AI agent's personal **Universal Multi-Repository App Store
 This specific edition is tailored for Codex's architecture:
 - Skills live in `.codex/skills/`.
 - The script automatically adapts skill language from Claude/Anthropic terminology to **Codex/OpenAI** terminology.
-
----
-
-## The Curation Philosophy & "The Goldilocks Principle"
-
-Why does this edition ship with exactly **20 pre-installed skills** instead of 100 or 500?
-
-### 1. Extensive Research & Macro-Skill Synthesis
-I, with the help of AI, conducted an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
-- [mattpocock/skills](https://github.com/mattpocock/skills) — TypeScript, React, and modern frontend development excellence.
-- [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) — Curated agentic behaviors and developer utilities.
-- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) — In-depth cybersecurity auditing and vulnerability analysis.
-- [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) — Complete autonomous AI agency roles (architects, analysts, DevOps leads).
-
-Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
-
-### 2. Preventing "Cognitive Overload" in Codex
-A common misconception in AI development is that *more skills equal better performance*. In reality, providing an AI agent with 50 or 100 overlapping skills causes **Cognitive Overload**:
-- **Instruction Clash:** When multiple skills contain similar or competing rules, Codex becomes confused about which guideline to prioritize.
-- **Token Bloat & Latency:** Loading dozens of redundant prompts consumes thousands of unnecessary context tokens, slowing down response times and degrading reasoning quality.
-- **Generic Output:** Overwhelmed models revert to generic, average coding patterns rather than applying sharp, specialized expertise.
-
-### 3. The Distilled Foundation (The Essential 20)
-The 20 skills pre-installed in `.codex/skills/` represent the **Distilled Core Foundation**. It is the precise, optimal number of skills required for Codex to perform every major software engineering, security, UI/UX design, and business analysis task at peak performance — without confusion, overlap, or context dilution.
+- **On-Demand MCP Architecture:** OpenAI models load all active tool schemas eagerly. To prevent burning 8,000+ input tokens per prompt, `mcp-orchestrator` implements On-Demand activation: servers sleep in `tools/mcp-registry.json` and attach only when required for specific tasks.
 
 ---
 
@@ -43,21 +20,23 @@ The 20 skills pre-installed in `.codex/skills/` represent the **Distilled Core F
 ```
 The Skillator Codex/
 ├── .codex/                    # Codex agent configuration
-│   ├── skills/                # Curated Core Macro-Skills
+│   ├── skills/                # Curated Core Macro-Skills (22 Foundation Skills)
 │   │   ├── silent-coder/      # Zero fluff, bimodal token-saving, <thought> tags
-│   │   ├── mcp-orchestrator/  # Codex MCP external tools & browser automation
+│   │   ├── mcp-orchestrator/  # On-Demand MCP Management & browser automation
+│   │   ├── skill-creator/     # Scaffold compliant new skills on demand
 │   │   ├── premium-frontend-architect/ # Taste dials & Google Font variety
 │   │   ├── core-security-guard/ # Security guardian & Prompt Injection shields
 │   │   └── ... (17 more)
 │   ├── prompts/               # Custom workflow prompts
 │   ├── config.toml            # Sandbox configuration
 │   └── .env.example           # Template for API keys (copy to .env)
-├── inputs/                    # Your input files go here
-├── outputs/                   # Generated results appear here
+├── inputs/                    # Optional input files
+├── outputs/                   # Generated results
 ├── tools/
-│   ├── manage-skills.ps1      # Multi-Repo Skill Manager & App Store (Skill-Spector scanned)
+│   ├── manage-skills.ps1      # Multi-Repo Skill Manager (Skill-Spector scanned)
 │   ├── init-workspace.ps1     # Zero-Token Environment Shield (.codexignore & VS Code)
-│   └── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 21 Skills)
+│   ├── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 22 Skills)
+│   └── mcp-registry.json      # Dormant MCP Server Registry (On-Demand Activation)
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files

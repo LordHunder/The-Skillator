@@ -11,30 +11,7 @@ The Skillator is your AI agent's personal **Universal Multi-Repository App Store
 This specific edition is tailored for Gemini's architecture:
 - Skills live in `.agent/skills/`.
 - The script automatically adapts skill language from Claude/Anthropic terminology to **Antigravity/Gemini** terminology.
-
----
-
-## The Curation Philosophy & "The Goldilocks Principle"
-
-Why does this edition ship with exactly **20 pre-installed skills** instead of 100 or 500?
-
-### 1. Extensive Research & Macro-Skill Synthesis
-I conducted, with the help of AI, an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
-- [mattpocock/skills](https://github.com/mattpocock/skills) — TypeScript, React, and modern frontend development excellence.
-- [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) — Curated agentic behaviors and developer utilities.
-- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) — In-depth cybersecurity auditing and vulnerability analysis.
-- [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) — Complete autonomous AI agency roles (architects, analysts, DevOps leads).
-
-Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
-
-### 2. Preventing "Cognitive Overload" in Gemini
-A common misconception in AI development is that *more skills equal better performance*. In reality, providing an AI agent with 50 or 100 overlapping skills causes **Cognitive Overload**:
-- **Instruction Clash:** When multiple skills contain similar or competing rules, Gemini becomes confused about which guideline to prioritize.
-- **Token Bloat & Latency:** Loading dozens of redundant prompts consumes thousands of unnecessary context tokens, slowing down response times and degrading reasoning quality.
-- **Generic Output:** Overwhelmed models revert to generic, average coding patterns rather than applying sharp, specialized expertise.
-
-### 3. The Distilled Foundation (The Essential 20)
-The 20 skills pre-installed in `.agent/skills/` represent the **Distilled Core Foundation**. It is the precise, optimal number of skills required for Gemini to perform every major software engineering, security, UI/UX design, and business analysis task at peak performance — without confusion, overlap, or context dilution.
+- **Native Lazy-Loading MCP:** Antigravity handles MCP tools with native lazy loading. Tool schemas are indexed on-demand, saving 8,000+ tokens per turn without requiring complex manual activation scripts!
 
 ---
 
@@ -43,20 +20,22 @@ The 20 skills pre-installed in `.agent/skills/` represent the **Distilled Core F
 ```
 The Skillator Antigravity/
 ├── .agent/                    # Gemini agent configuration
-│   ├── skills/                # Curated Core Macro-Skills
+│   ├── skills/                # Curated Core Macro-Skills (22 Foundation Skills)
 │   │   ├── silent-coder/      # Zero conversational fluff, bimodal token-saving
-│   │   ├── mcp-orchestrator/  # MCP tools, Playwright & Agent Reach integration
+│   │   ├── mcp-orchestrator/  # Native Lazy-Loading MCP & browser automation
+│   │   ├── skill-creator/     # Scaffold compliant new skills on demand
 │   │   ├── premium-frontend-architect/ # Taste dials & Google Font variety
 │   │   ├── core-security-guard/ # Security guardian & Prompt Injection shields
 │   │   └── ... (17 more)
 │   ├── workflows/             # Custom workflows (ready for use)
 │   └── .env.example           # Template for API keys (copy to .env)
-├── inputs/                    # Your input files go here
-├── outputs/                   # Generated results appear here
+├── inputs/                    # Optional input files
+├── outputs/                   # Generated results
 ├── tools/
-│   ├── manage-skills.ps1      # Multi-Repo Skill Manager & App Store (Skill-Spector scanned)
+│   ├── manage-skills.ps1      # Multi-Repo Skill Manager (Skill-Spector scanned)
 │   ├── init-workspace.ps1     # Zero-Token Environment Shield (.agentsignore & VS Code)
-│   └── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 21 Skills)
+│   ├── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 22 Skills)
+│   └── mcp-registry.json      # Pre-configured MCP server templates (Playwright, GitHub, etc.)
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files

@@ -1,19 +1,27 @@
 ---
 name: mcp-orchestrator
 description: >
-  Teaches the agent how to discover and use MCP (Model Context Protocol) servers. 
-  Crucial for agents interacting with external tools like Playwright, databases, or local filesystems.
+  Guides the agent on discovering and leveraging MCP (Model Context Protocol) servers.
+  Leverages Antigravity's native Lazy-Loading architecture to invoke external tools (Playwright, databases, GitHub)
+  with zero context bloat. Use when interacting with external tools, web testing, or live APIs.
 ---
 
-# MCP Orchestrator
+# MCP Orchestrator (Antigravity Edition)
 
-Your environment supports **MCP (Model Context Protocol) servers**. This means you are not limited to text generation; you can interact with the outside world.
+Antigravity features native support for **MCP (Model Context Protocol)** servers. This connects Gemini directly to external tools, databases, browsers, and API gateways.
 
-## How to use MCP:
-1. **Discover Tools:** If the user asks you to interact with a specific tool (e.g., GitHub, a database, Playwright), check if you have an MCP server configured for it.
-2. **Execute Tools:** Use your native tool-calling capabilities to invoke MCP resources. 
-3. **Handle Errors:** If an MCP tool call fails, DO NOT invent the data. Tell the user the tool failed and explain the error output so they can fix the configuration.
+## Antigravity Native Architecture: Zero-Bloat Lazy Loading
+Unlike traditional agent environments that eagerly inject all tool definitions into every prompt turn, **Antigravity utilizes native Lazy-Loading for MCP tools**:
+- **Indexed on Demand:** Tool schemas are not permanently stored in the active system prompt. Gemini indexes tools by signature and only retrieves full schema definitions when actively invoking them.
+- **Token Efficiency:** Because of this built-in architecture, Antigravity does **not** require manual on/off toggling of MCP servers to save tokens. You get maximum tool capability without the 10,000+ token penalty per prompt.
 
-## Playwright & Agent Reach Guidelines
-- **Playwright CLI / MCP:** If requested to test a UI or interact with a local web app, use the Playwright MCP or CLI tools to click, type, and verify elements.
-- **Agent Reach:** If requested to search external social data (Reddit, Twitter, YouTube), use the Agent Reach tools to fetch live data instead of relying on your training cutoff.
+## Execution Directives:
+1. **Priority to Specialized Tools:** When requested to test a web UI, navigate a site, or inspect an external API, prioritize using configured MCP servers (e.g. Playwright, GitHub, PostgreSQL) over writing fragile ad-hoc terminal scripts.
+2. **Zero Hallucination on Errors:** If an MCP server returns an error, timeout, or authentication failure, DO NOT invent results. Present the raw error output to the user and explain which credential (e.g., environment variable) needs verification.
+3. **Assisted Setup:** When the user asks for a workflow requiring an unconfigured external integration, provide the exact configuration block for `mcp_config.json` referencing environment variables.
+
+## Gold Standard Integrations:
+- **Playwright MCP:** Run real headless/headed browser sessions to test click events, forms, and visual state.
+- **GitHub MCP:** Create PRs, review issues, and inspect repository commits via official API calls.
+- **Database MCP (PostgreSQL / SQLite / Supabase):** Inspect schema definitions and execute validated SQL queries.
+- **Web Intelligence (Firecrawl / Agent Reach):** Fetch live web pages and documentation beyond knowledge cutoff.

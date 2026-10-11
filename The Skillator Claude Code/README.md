@@ -12,30 +12,7 @@ This specific edition is tailored for Claude Code's native architecture:
 - Skills live in `.claude/skills/`.
 - No language adaptation is required — Claude executes the skills natively without translation.
 - Security hooks in `.claude/settings.json` protect against dangerous shell execution.
-
----
-
-## The Curation Philosophy & "The Goldilocks Principle"
-
-Why does this edition ship with exactly **20 pre-installed skills** instead of 100 or 500?
-
-### 1. Extensive Research & Macro-Skill Synthesis
-I conducted, with the help of AI, an exhaustive research, curation, and synthesis process across thousands of skills from leading open-source repositories:
-- [mattpocock/skills](https://github.com/mattpocock/skills) — TypeScript, React, and modern frontend development excellence.
-- [sickn33/antigravity-awesome-skills](https://github.com/sickn33/antigravity-awesome-skills) — Curated agentic behaviors and developer utilities.
-- [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) — In-depth cybersecurity auditing and vulnerability analysis.
-- [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) — Complete autonomous AI agency roles (architects, analysts, DevOps leads).
-
-Instead of simply copying raw files, I analyzed the complex agent personas in `agency-agents` and **converted entire autonomous roles into high-density "Macro-Skills"** (such as `premium-frontend-architect`, `devops-cloud-architect`, and `core-security-guard`).
-
-### 2. Preventing "Cognitive Overload" in Claude Code
-A common misconception in AI development is that *more skills equal better performance*. In reality, providing an AI agent with 50 or 100 overlapping skills causes **Cognitive Overload**:
-- **Instruction Clash:** When multiple skills contain similar or competing rules, Claude becomes confused about which guideline to prioritize.
-- **Token Bloat & Latency:** Loading dozens of redundant prompts consumes thousands of unnecessary context tokens, slowing down response times and degrading reasoning quality.
-- **Generic Output:** Overwhelmed models revert to generic, average coding patterns rather than applying sharp, specialized expertise.
-
-### 3. The Distilled Foundation (The Essential 20)
-The 20 skills pre-installed in `.claude/skills/` represent the **Distilled Core Foundation**. It is the precise, optimal number of skills required for Claude to perform every major software engineering, security, UI/UX design, and business analysis task at peak performance — without confusion, overlap, or context dilution.
+- **On-Demand MCP Architecture:** Because Claude Code loads all active MCP servers eagerly on every message (costing 8,000+ tokens per turn), `mcp-orchestrator` implements an On-Demand Protocol. Servers sleep in `tools/mcp-registry.json` and attach only when requested, saving massive context tokens!
 
 ---
 
@@ -44,21 +21,23 @@ The 20 skills pre-installed in `.claude/skills/` represent the **Distilled Core 
 ```
 The Skillator Claude Code/
 ├── .claude/                   # Claude Code configuration
-│   ├── skills/                # Curated Core Macro-Skills
+│   ├── skills/                # Curated Core Macro-Skills (22 Foundation Skills)
 │   │   ├── silent-coder/      # Zero fluff, bimodal execution, <thinking> tags
-│   │   ├── mcp-orchestrator/  # Native Claude Code MCP tools & browser automation
+│   │   ├── mcp-orchestrator/  # On-Demand MCP Management & browser testing
+│   │   ├── skill-creator/     # Scaffold compliant new skills on demand
 │   │   ├── premium-frontend-architect/ # Taste dials & Google Font variety
 │   │   ├── core-security-guard/ # Security guardian & Prompt Injection shields
 │   │   └── ... (17 more)
 │   ├── commands/              # Custom slash workflows
 │   ├── settings.json          # Security hooks & permission gates
 │   └── .env.example           # Template for API keys (copy to .env)
-├── inputs/                    # Your input files go here
-├── outputs/                   # Generated results appear here
+├── inputs/                    # Optional input files
+├── outputs/                   # Generated results
 ├── tools/
-│   ├── manage-skills.ps1      # Multi-Repo Skill Manager & App Store (Skill-Spector scanned)
+│   ├── manage-skills.ps1      # Multi-Repo Skill Manager (Skill-Spector scanned)
 │   ├── init-workspace.ps1     # Zero-Token Environment Shield (.claudeignore & VS Code)
-│   └── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 21 Skills)
+│   ├── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 22 Skills)
+│   └── mcp-registry.json      # Dormant MCP Server Registry (On-Demand Activation)
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files

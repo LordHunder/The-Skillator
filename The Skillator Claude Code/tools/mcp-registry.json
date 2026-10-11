@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json.schemastore.org/mcp-config.json",
+  "description": "The Skillator -- Pre-configured Dormant MCP Registry. Attach on-demand to avoid context bloat.",
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-playwright"],
+      "description": "Headless browser automation and end-to-end visual testing."
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_TOKEN"
+      },
+      "description": "Manage repositories, Pull Requests, issues, and commits via API."
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "$DATABASE_URL"],
+      "description": "Inspect PostgreSQL schemas, tables, and execute validated queries."
+    },
+    "magic-ui": {
+      "command": "npx",
+      "args": ["-y", "@21st-dev/magic-mcp"],
+      "description": "Fetch production-ready components and animations from 21st.dev."
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "$FIRECRAWL_API_KEY"
+      },
+      "description": "End-to-end web scraping, research, and documentation extraction."
+    }
+  }
+}

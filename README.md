@@ -20,26 +20,28 @@ However, developers face two major obstacles:
 
 ---
 
-## The Dual Token-Shield Philosophy (Zero-Token Leak by Design)
+## The Triple Token-Shield Philosophy (Zero-Token Leak by Design)
 
-The Skillator is engineered to minimize token consumption and maximize speed from day one:
+The Skillator is engineered to minimize token consumption and maximize speed from day one across three distinct defense layers:
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        THE DUAL TOKEN-SHIELD                           │
-├──────────────────────────────────┬─────────────────────────────────────┤
-│   1. INPUT SHIELD (Workspace)    │     2. OUTPUT SHIELD (AI Skill)     │
-│   tools/init-workspace.ps1       │     skills/silent-coder             │
-├──────────────────────────────────┼─────────────────────────────────────┤
-│ • Generates native ignore files  │ • Replaces deprecated 'caveman'.    │
-│   (.agentsignore, .geminiignore, │ • Bimodal execution: deep hidden    │
-│   .claudeignore, .codexignore).  │   reasoning (<thought>/<thinking>)  │
-│ • Merges .vscode/settings.json   │   with zero conversational fluff.   │
-│   search.exclude & files.exclude │ • Code & diffs delivered directly.  │
-│ • Blocks lockfiles, node_modules │ • Detailed articulate reasoning     │
-│   and compiled bundles at source.│   reserved only for questions.      │
-│ ➔ SAVES 250k - 600k TOKENS/READ  │ ➔ SAVES 30% - 50% OUTPUT TOKENS     │
-└──────────────────────────────────┴─────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 THE TRIPLE TOKEN-SHIELD                                 │
+├──────────────────────────┬─────────────────────────────┬────────────────────────────────┤
+│ 1. INPUT SHIELD          │ 2. OUTPUT SHIELD            │ 3. TOOL / MCP SHIELD           │
+│ tools/init-workspace.ps1 │ skills/silent-coder         │ skills/mcp-orchestrator        │
+├──────────────────────────┼─────────────────────────────┼────────────────────────────────┤
+│ • Generates native ignore│ • Replaces deprecated       │ • ANTIGRAVITY (Gemini):        │
+│   files (.agentsignore,  │   'caveman' mode.           │   Native Lazy-Loading indexes  │
+│   .geminiignore,         │ • Bimodal execution: deep   │   MCP signatures, loading      │
+│   .claudeignore,         │   hidden reasoning inside   │   schemas ONLY on execution    │
+│   .codexignore).         │   <thought>/<thinking> tags │   (zero setup, zero bloat).    │
+│ • Merges .vscode/settings│   with zero conversational  │ • CLAUDE CODE & CODEX:         │
+│   to exclude lockfiles,  │   fluff outside.            │   Dynamic On-Demand Protocol.  │
+│   node_modules, & builds.│ • Code & diffs delivered    │   Servers sleep in registry    │
+│ ➔ SAVES 250k - 600k      │   directly.                 │   and attach only per task.    │
+│   TOKENS / INCIDENT      │ ➔ SAVES 30% - 50% OUTPUT    │ ➔ SAVES 8k - 15k TOKENS/PROMPT │
+└──────────────────────────┴─────────────────────────────┴────────────────────────────────┘
 ```
 
 ---

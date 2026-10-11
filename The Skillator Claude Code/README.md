@@ -44,10 +44,11 @@ The 20 skills pre-installed in `.claude/skills/` represent the **Distilled Core 
 ```
 The Skillator Claude Code/
 ├── .claude/                   # Claude Code configuration
-│   ├── skills/                # 20 pre-installed Core Macro-Skills
-│   │   ├── core-security-guard/
-│   │   ├── brainstorming/
-│   │   ├── design-craft/
+│   ├── skills/                # Curated Core Macro-Skills
+│   │   ├── silent-coder/      # Zero fluff, bimodal execution, <thinking> tags
+│   │   ├── mcp-orchestrator/  # Native Claude Code MCP tools & browser automation
+│   │   ├── premium-frontend-architect/ # Taste dials & Google Font variety
+│   │   ├── core-security-guard/ # Security guardian & Prompt Injection shields
 │   │   └── ... (17 more)
 │   ├── commands/              # Custom slash workflows
 │   ├── settings.json          # Security hooks & permission gates
@@ -55,7 +56,9 @@ The Skillator Claude Code/
 ├── inputs/                    # Your input files go here
 ├── outputs/                   # Generated results appear here
 ├── tools/
-│   └── manage-skills.ps1      # Universal Multi-Repo Skill Manager script
+│   ├── manage-skills.ps1      # Multi-Repo Skill Manager & App Store (Skill-Spector scanned)
+│   ├── init-workspace.ps1     # Zero-Token Environment Shield (.claudeignore & VS Code)
+│   └── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 21 Skills)
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files

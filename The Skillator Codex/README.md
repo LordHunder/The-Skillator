@@ -43,10 +43,11 @@ The 20 skills pre-installed in `.codex/skills/` represent the **Distilled Core F
 ```
 The Skillator Codex/
 ├── .codex/                    # Codex agent configuration
-│   ├── skills/                # 20 pre-installed Core Macro-Skills
-│   │   ├── core-security-guard/
-│   │   ├── brainstorming/
-│   │   ├── design-craft/
+│   ├── skills/                # Curated Core Macro-Skills
+│   │   ├── silent-coder/      # Zero fluff, bimodal token-saving, <thought> tags
+│   │   ├── mcp-orchestrator/  # Codex MCP external tools & browser automation
+│   │   ├── premium-frontend-architect/ # Taste dials & Google Font variety
+│   │   ├── core-security-guard/ # Security guardian & Prompt Injection shields
 │   │   └── ... (17 more)
 │   ├── prompts/               # Custom workflow prompts
 │   ├── config.toml            # Sandbox configuration
@@ -54,7 +55,9 @@ The Skillator Codex/
 ├── inputs/                    # Your input files go here
 ├── outputs/                   # Generated results appear here
 ├── tools/
-│   └── manage-skills.ps1      # Universal Multi-Repo Skill Manager script
+│   ├── manage-skills.ps1      # Multi-Repo Skill Manager & App Store (Skill-Spector scanned)
+│   ├── init-workspace.ps1     # Zero-Token Environment Shield (.codexignore & VS Code)
+│   └── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 21 Skills)
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files

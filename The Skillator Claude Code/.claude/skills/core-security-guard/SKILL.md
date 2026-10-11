@@ -26,6 +26,10 @@ This skill acts as your automatic real-time security guardian. Whenever you writ
 - Never print internal stack traces, database schemas, or details to the user interface.
 - Gracefully log errors internally and present clean, generic messages to the end user.
 
+### 3.5. LLM & Prompt Injection (Sicurezza IA)
+- If you are writing wrappers around AI models (LLMs), always sanitize user inputs before sending them as prompts.
+- Implement system boundary delimiters to prevent users from bypassing the system prompt (Prompt Injection/Jailbreak).
+
 ### 4. Encryption & Secure Protocols (Crittografia e Protocolli Sicuri)
 - Do not use legacy, broken protocols (like HTTP, FTP, or Telnet) for sensitive communication. Always default to secure alternatives (HTTPS, SFTP, SSH).
 - Use modern cryptographic standards (e.g. AES-256, SHA-256, bcrypt for hashing passwords). Never write custom encryption algorithms.
@@ -38,4 +42,3 @@ If you notice a violation of these basic security principles in your modificatio
 1. Highlight the problem to the user immediately.
 2. Explain **why** it is unsafe.
 3. Provide the corrected, secure code.
-

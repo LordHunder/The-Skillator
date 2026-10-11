@@ -28,14 +28,14 @@ $DefaultRepos = @(
     @{ Name = "agency-agents"; Url = "https://github.com/msitarzewski/agency-agents" }
 )
 
-# 3. The 20 Distilled Core Macro-Skills (The Gold Standard)
+# 3. The Distilled Core Macro-Skills (The Gold Standard)
 $CoreMacroSkills = @(
-    "accessibility-and-performance", "brainstorming", "brand-identity", "caveman",
+    "accessibility-and-performance", "brainstorming", "brand-identity",
     "codebase-onboarding-explorer", "core-security-guard", "database-sql-optimizer",
     "deep-security-audit", "design-craft", "devops-cloud-architect",
     "error-handling-patterns", "finance-business-analyst", "legal-compliance-advisor",
-    "magic-ui-generator", "motion-choreographer", "premium-frontend-architect",
-    "project-memory-archivist", "seo-aeo-optimizer", "ui-redesign", "writing-plans"
+    "magic-ui-generator", "mcp-orchestrator", "motion-choreographer", "premium-frontend-architect",
+    "project-memory-archivist", "seo-aeo-optimizer", "silent-coder", "ui-redesign", "writing-plans"
 )
 
 # Helper Function: Extract YAML Frontmatter
@@ -213,6 +213,13 @@ if ($Install) {
     
     if (-not (Test-Path $ActiveSkillsDir)) {
         New-Item -ItemType Directory -Path $ActiveSkillsDir -Force | Out-Null
+    }
+    
+    Write-Host ("Scanning skill '" + $targetSkill.Name + "' with Skill-Spector for malware/injection...") -ForegroundColor Cyan
+    if (Get-Command "skillspector" -ErrorAction SilentlyContinue) {
+        skillspector scan "$($targetSkill.Path)"
+    } else {
+        Write-Host "Skill-Spector CLI not detected. Proceeding with standard verification..." -ForegroundColor DarkGray
     }
     
     Write-Host ("Installing skill '" + $targetSkill.Name + "' from repo '" + $targetSkill.Repo + "'...") -ForegroundColor Cyan

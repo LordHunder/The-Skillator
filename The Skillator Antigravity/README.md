@@ -43,17 +43,20 @@ The 20 skills pre-installed in `.agent/skills/` represent the **Distilled Core F
 ```
 The Skillator Antigravity/
 ├── .agent/                    # Gemini agent configuration
-│   ├── skills/                # 20 pre-installed Core Macro-Skills
-│   │   ├── core-security-guard/
-│   │   ├── brainstorming/
-│   │   ├── design-craft/
+│   ├── skills/                # Curated Core Macro-Skills
+│   │   ├── silent-coder/      # Zero conversational fluff, bimodal token-saving
+│   │   ├── mcp-orchestrator/  # MCP tools, Playwright & Agent Reach integration
+│   │   ├── premium-frontend-architect/ # Taste dials & Google Font variety
+│   │   ├── core-security-guard/ # Security guardian & Prompt Injection shields
 │   │   └── ... (17 more)
-│   ├── workflows/             # Custom workflows (empty, ready for use)
+│   ├── workflows/             # Custom workflows (ready for use)
 │   └── .env.example           # Template for API keys (copy to .env)
 ├── inputs/                    # Your input files go here
 ├── outputs/                   # Generated results appear here
 ├── tools/
-│   └── manage-skills.ps1      # Universal Multi-Repo Skill Manager script
+│   ├── manage-skills.ps1      # Multi-Repo Skill Manager & App Store (Skill-Spector scanned)
+│   ├── init-workspace.ps1     # Zero-Token Environment Shield (.agentsignore & VS Code)
+│   └── setup-project.ps1      # Master All-In-One Bootstrapper (Environment + 21 Skills)
 ├── skill_creator.md           # Guide for creating new skills
 ├── README.md                  # ← You are here
 └── .gitignore                 # Protects secrets and temp files
